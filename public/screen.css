@@ -12,11 +12,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: whitesmoke;
   color: rgb(14, 14, 14);
 }
-
-body,
+.cusepic {
+  width: 35%;
+  height: 10rem;
+}
 html {
   height: 100%;
 }
@@ -48,4 +49,34 @@ h1 {
 .team-2-score {
   text-align: center;
   font-size: 5rem;
+}
+.update-team-1-name {
+  border: solid;
+  border-color: orange;
+  border-radius: 25px;
+}
+.update-team-2-name {
+  border: solid;
+  border-color: orange;
+  border-radius: 25px;
+}
+.periodtracker {
+  justify-content: center;
+}
+h3 {
+  text-align: center;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .teamonesect {
+    font-size: 0.9rem;
+  }
+  .team-1-input {
+    width: 35%;
+  }
+  .cusepic {
+  }
+  .team-1-name {
+    font-size: 1px;
+  }
 }
