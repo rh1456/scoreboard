@@ -1,8 +1,13 @@
-let score = 0
-
 const main = () => {
   console.log('Hello World')
 }
+
+let scoreOne = 0
+let scoreTwo = 0
+let scoreRes = 0
+
+//main
+
 function startTimer(duration, display) {
   var timer = duration,
     minutes,
@@ -26,35 +31,65 @@ window.onload = function() {
   display = document.querySelector('#time')
   startTimer(fiveMinutes, display)
 }
-//quarter tracker attempt
+//winner message
 
 //team score count functions
 const addOneToTeamOneCount = () => {
-  console.log('add 1 to team one score')
-  //get the score from the input
-  score = score + 1
-  console.log(score)
-  document.querySelector('.team-1-score').textContent = score
+  // console.log('add 1 to team one score')
+  // //get the score from the input
+  // scoreTwo = scoreTwo + 1
+  // console.log(score)
+  if (scoreOne < 21) {
+    scoreOne = scoreOne + 1
+    document.querySelector('.team-1-score').textContent = scoreOne
+  } else if (scoreOne === 21) {
+    document.querySelector('.team-1-subtract-1-button').disabled = true
+    document.querySelector('.team-2-add-1-button').disabled = true
+    document.querySelector('.team-2-subtract-1-button').disabled = true
+    document.querySelector('.team-1-name').textContent = ''
+    document.querySelector('.team-1-name').textContent = 'Team 1 Wins!'
+    document.querySelector('.team-2-name').textContent = 'Loser'
+  }
 }
 const subtractOneToTeamOneCount = () => {
-  console.log('subtract 1 to team one score')
-  score = score - 1
-  console.log(score)
-  document.querySelector('.team-1-score').textContent = score
+  // console.log('subtract 1 to team one score')
+  // score = score - 1
+  // console.log(score)
+  if (scoreOne >= 1) {
+    scoreOne = scoreOne - 1
+    document.querySelector('.team-1-score').textContent = scoreOne
+  }
 }
+
 const addOneToTeamTwoCount = () => {
-  console.log('add 1 to team 2 score')
-  //define what the score is
-  score = score + 1
-  console.log(score)
-  document.querySelector('.team-2-score').textContent = score
+  // console.log('add 1 to team 2 score')
+  // //define what the score is
+  // scoreTwo = scoreTwo + 1
+  // console.log(score)
+  if (scoreTwo < 21) {
+    scoreTwo = scoreTwo + 1
+    document.querySelector('.team-2-score').textContent = scoreTwo
+  } else if (scoreTwo === 21) {
+    document.querySelector('.team-1-subtract-1-button').disabled = true
+    document.querySelector('.team-1-add-1-button').disabled = true
+    document.querySelector('.team-2-subtract-1-button').disabled = true
+    document.querySelector('.team-2-name').textContent = 'Team 2 Wins'
+    document.querySelector('.team-1-name').textContent = 'Loser'
+  }
 }
+
 const subtractOneFromTeamTwoScore = () => {
-  console.log('subtract 2 from team 2 score')
-  score = score - 1
-  console.log(score)
-  document.querySelector('.team-2-score').textContent = score
+  if (scoreTwo >= 1) {
+    scoreTwo = scoreTwo - 1
+    document.querySelector('.team-2-score').textContent = scoreTwo
+  }
 }
+//resetfunction button
+
+function refreshPage() {
+  window.location.reload()
+}
+
 //define constants to change names
 
 const updateTeamOneName = () => {
@@ -94,5 +129,7 @@ document
 document
   .querySelector('.update-team-2-name')
   .addEventListener('click', updateTeamTwoName)
+
+document.querySelector('.resetButton').addEventListener('click', resetButton)
 
 document.addEventListener('DOMContentLoaded', main)
